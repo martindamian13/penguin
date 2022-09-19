@@ -1,30 +1,63 @@
-from http.client import REQUEST_ENTITY_TOO_LARGE
-from wsgiref.handlers import read_environ
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/tasks.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/database.sqlite3'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 db = SQLAlchemy(app)
 
-class Task(db.Model):
+# Database model
+class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(250))
-    done = db.Column(db.Boolean)
+    title = db.Column(db.String(80))
+    completed = db.Column(db.Boolean)
 
+    def __init__(self, title, completed):
+        self.title = title
+        self.completed = completed
+
+    def __repr__(self):
+        return f'<Todo: {self.title}>'
+
+
+# Endpoint for todo list
 @app.route('/')
-def home():
-    return render_template('index.html')
+def index():
+    todos = Todo.query.all()
+    return render_template('index.html', todos=todos)
 
-
-@app.route('/create-registro', methods=['POST'])
+  
+# Endpoint for create todo
+@app.route('/todo/create', methods=['POST'])
 def create():
-    task = Task(content=request.form['content'], done=False)
-    db.session.add(task)
+    title = request.form['title']
+    todo = Todo(title, completed=False)
+    db.session.add(todo)
     db.session.commit()
-    return 'saved'
+    return redirect(url_for('index'))
+  
+  
+# Endpoint for update todo
+@app.route('/todo/<int:todo_id>/update')
+def update(todo_id):
+    todo = Todo.query.filter_by(id=todo_id).first()
+    todo.completed = not todo.completed
+    db.session.commit()
+    return redirect(url_for('index'))
+  
 
+# Endpoint for delete todo
+@app.route('/todo/<int:todo_id>/delete')
+def delete(todo_id):
+    todo = Todo.query.filter_by(id=todo_id).first()
+    db.session.delete(todo)
+    db.session.commit()
+    return redirect(url_for('index'))
+  
 
+# Run the app
 if __name__ == '__main__':
+    db.create_all()
     app.run(debug=True)
