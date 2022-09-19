@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <title>(SIRAP)</title>
+<!--- Documento html de prueba -->
+</head>
+<body>
+    <div class="flex flex-wrap min-h-screen sm:justify-center items-center h-full bg-gradient-to-tl from-blue-400 to-red-900 w-full py-16 px-4">
+    <h1class= pt-10 text-center text-5xl	>Datos Personales</h1> 
+        <div>
+            <!-- Pedimos al usuario que ingrese su nombre-->
+            <form>
+                <div class="grid gap-6 mb-6 md:grid-cols-2">
+                    <div>
+                        <label for="Nombres" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nombres</label>
+                        <input type="text" nombre="Nombres" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Carlos" required>
+                    </div>
+                    <!--- Pedimos al usuario que ingrese su apellido -->
+                    <div>
+                        <label for="Apellidos" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Apellidos</label>
+                        <input apellidos="text" apellido="Apellidos" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Martinez" required>
+                    </div>
+                    <!-- Pedimos al usuario que ingrese su cuidad-->
+                    <div><label for="cuidades" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Seleccione una opcion</label>
+                        <select cuidad="cuidades" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                          <option selected>Selccione su Ciudad</option>
+                          <option value="SL">San Lorenzo</option>
+                          <option value="AR">Aregua</option>
+                          <option value="CDE">Cuidad del este</option>
+                          <option value="ENC">Encarnacion</option>
+                        </select>
+
+                    </div>
+                    
+                    <!-- Pedimos al usuario que introduzca su fecha de nacimiento-->
+                    <div class="flex items-center justify-center">
+                        <div class="datepicker relative form-floating mb-3 xl:w-96">
+                          <input nacimiento="text"
+                            class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                            placeholder="Introduzca su fecha de naciemiento" />
+                          <label for="floatingInput" class="text-gray-700">Fecha de nacimiento</label>
+                        </div>
+
+                    <!-- Pedimos al usuario que ingrese su sexoon`t-->
+                    
+                    <div class="flex items-center mb-4">
+                        <h3>Seleccione su sexo</h3>
+                        <input sexo="default-radio-1" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="default-radio-1" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Masculino</label>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input checked="" sexo="default-radio-2" type="radio" value="" name="default-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="default-radio-2" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Femenino</label>
+                    </div>
+
+                                        
+             </div>
+            </div>
+        </div>
+    
+        <!-- CATEEGORIAS-->
+        <!---TRABAJOS ARTESANALES-->
+        <div>
+            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">Trabajo Artesanal</h3>
+    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input t_artesanal="vue-checkbox-list" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="vue-checkbox-list" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">ARTESANIA POPULAR Y TRADICIONAL</label>
+            </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input t_artesanal="react-checkbox-list" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="react-checkbox-list" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">ARTE INDIGENA</label>
+            </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input t_artesanal="angular-checkbox-list" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="angular-checkbox-list" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">ARTESANIA CONTEMPORANEA</label>
+            </div>
+    </ul>
+        </div> 
+        
+        <!-- Modalidad-->
+        <div>
+            <h3 class="mb-4 font-semibold text-gray-900 dark:text-white">MODALIDAD</h3>
+    <ul class="items-center w-full text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 sm:flex dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input modalidad="vue-checkbox-list" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="vue-checkbox-list" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">TEXTILES</label>
+            </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input modalidad="react-checkbox-list" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="react-checkbox-list" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">CUERO</label>
+            </div>
+        </li>
+        <li class="w-full border-b border-gray-200 sm:border-b-0 sm:border-r dark:border-gray-600">
+            <div class="flex items-center pl-3">
+                <input modalidad="angular-checkbox-list" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                <label for="angular-checkbox-list" class="py-3 ml-2 w-full text-sm font-medium text-gray-900 dark:text-gray-300">CERAMICA</label>
+            </div>
+        </div>
+    
+        <!-- Clasificacion por materia prima-->
+        <h3>CLASIFICACION POR MATERIA PRIMA</h3>
+            <!-- TEXTILES-->
+            <div>
+    
+                <h3> TEXTILES</h3>
+                <div class="flex items-center mr-4">
+                    <input mat_prima="algodon-checkbox" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-gray-100 rounded border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="algodon-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Algodon</label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input  mat_prima="recolecta-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 rounded border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="recolecta-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Recolecta</label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input  mat_prima="lana de oveja-checkbox" type="checkbox" value="" class="w-4 h-4 text-purple-600 bg-gray-100 rounded border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="lana de oveja-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Lana De Oveja</label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input mat_prima="karaguata-checkbox" type="checkbox" value="" class="w-4 h-4 text-teal-600 bg-gray-100 rounded border-gray-300 focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="karaguata-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Karaguata</label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input mat_prima="fibra de mbocaja-checkbox" type="checkbox" value="" class="w-4 h-4 text-yellow-400 bg-gray-100 rounded border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="fibra de mbocaja-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fibra de mbocaja</label>
+                </div>
+                
+                
+            </div>
+            <!-- CUERO-->
+            <div>
+    
+                <h3> CUERO</h3>
+                <div class="flex items-center mr-4">
+                    <input mat_prima="cuero crudo-checkbox" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-gray-100 rounded border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="cuero crudo-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cuero Crudo</label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input  mat_prima="cuero curtido-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 rounded border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="cuero curtido-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cuero Curtido</label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input  mat_prima="cuero sintetico-checkbox" type="checkbox" value="" class="w-4 h-4 text-purple-600 bg-gray-100 rounded border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="cuero sintetico-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cuero Sintetico</label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input mat_prima="pieles de animales silvestres-checkbox" type="checkbox" value="" class="w-4 h-4 text-teal-600 bg-gray-100 rounded border-gray-300 focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="pieles de animales silvestres-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Pieles de animales silvestres</label>
+            
+            </div>
+            
+        
+            <!-- Como el Productor consigue la Materia Prima (Checbox)-->
+            <div>
+    
+                <h3> Como consigue la materia prima?</h3>
+                <div class="flex items-center mr-4">
+                    <input id="compra-checkbox" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-gray-100 rounded border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="compra-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Compra</label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input  id="recolecta-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 rounded border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="recolecta-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Recolecta</label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input  id="cultiva y cosecha-checkbox" type="checkbox" value="" class="w-4 h-4 text-purple-600 bg-gray-100 rounded border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="cultiva-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cultiva y cosecha</label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input id="donacion-checkbox" type="checkbox" value="" class="w-4 h-4 text-teal-600 bg-gray-100 rounded border-gray-300 focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="donacion-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Donacion</label>
+                </div>
+                <div class="flex items-center mr-4">
+                    <input id="elaboracion propia-checkbox" type="checkbox" value="" class="w-4 h-4 text-yellow-400 bg-gray-100 rounded border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="elaboracion propia-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Elaboracion Propia</label>
+                </div>
+                
+                
+            </div>
+    
+            <!-- Clasificacion por tecnica-->
+            <h3>Clasificacion por tecnica</h3>
+                <div>
+                    <h4>TEXTIL</h4>
+                    <div class="flex items-center mr-4">
+                        <input  id="ao po`i-checkbox" type="checkbox" value="" class="w-4 h-4 text-red-600 bg-gray-100 rounded border-gray-300 focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="ao po`i-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Ao po`i</label>
+                    </div>
+                    <div class="flex items-center mr-4">
+                        <input  id="bordado-checkbox" type="checkbox" value="" class="w-4 h-4 text-green-600 bg-gray-100 rounded border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="bordado-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Bordado</label>
+                    </div>
+                    <div class="flex items-center mr-4">
+                        <input  id="crochet-checkbox" type="checkbox" value="" class="w-4 h-4 text-purple-600 bg-gray-100 rounded border-gray-300 focus:ring-purple-500 dark:focus:ring-purple-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="crochet-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Crochet</label>
+                    </div>
+                    <div class="flex items-center mr-4">
+                        <input id="dos agujas-checkbox" type="checkbox" value="" class="w-4 h-4 text-teal-600 bg-gray-100 rounded border-gray-300 focus:ring-teal-500 dark:focus:ring-teal-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="dos agujas-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Dos Agujas</label>
+                    </div>
+                    <div class="flex items-center mr-4">
+                        <input id="costura a mano -checkbox" type="checkbox" value="" class="w-4 h-4 text-yellow-400 bg-gray-100 rounded border-gray-300 focus:ring-yellow-500 dark:focus:ring-yellow-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="costura a mano -checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Costura a mano</label>
+                    </div>
+                    <div class="flex items-center mr-4">
+                        <input  id="Tejido ñanduti hilo grueso-checkbox" type="checkbox" value="" class="w-4 h-4 text-orange-500 bg-gray-100 rounded border-gray-300 focus:ring-orange-500 dark:focus:ring-orange-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                        <label for="tejido ñanduti-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Tejido Ñanduti Hilo Grueso</label>
+                    </div>
+                    
+                </div>
+            
+            <!-- Oficcio-->
+                <h2> OFICIO</h2>
+            <!-- Como  aprendio?-->
+                <h3>1-Como aprendio?</h3>
+                
+                    <div class="flex">
+                        <div class="flex items-center mr-4">
+                            <input oficio="herencia familiar-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="herencia familiar-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Herencia Familiar</label>
+                        </div>
+                        <div class="flex items-center mr-4">
+                            <input oficio="curso ofrecido por el ipa-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="curso ofrecido por el ipa-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Curso Ofrecido Por El IPA</label>
+                        </div>
+                        <div class="flex items-center mr-4">
+                            <input oficio="autodidacta-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                            <label for="Autodidacta-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Autodidacta</label>
+                        </div>
+                    </div>
+                <!-- Antiguedad-->
+                <div>
+                    <h3>2- Antiguedad</h3>
+                            <div> 
+    
+                                <div class="flex">
+                                    <div class="flex items-center mr-4">
+                                        <input antiguedad="de 1 a 5 años-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="de 1 a 5 años-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">De 1 a 5 años</label>
+                                    </div>
+                                    <div class="flex items-center mr-4">
+                                        <input antiguedad="de 5 a 10 años-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="de 5 a 10 años-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">De 5 a 10 años</label>
+                                    </div>
+                                    <div class="flex items-center mr-4">
+                                        <input  antiguedad="de 10  a 20 años -checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="de 10 a 20 años -checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">De 10 a 20 años</label>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <input  antiguedad="Mas de 20 años-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                        <label for="Mas de 20 años-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Mas de 20 años</label>
+                                    </div>
+                                </div>
+    
+                            </div>
+                </div>
+                <!--BOTON DE ENVIAR O CARGAR-->
+                <div>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+                        Button
+                      </button>
+                </div>
+                      </div>
+
+        </div>
+</body>
+</html>
