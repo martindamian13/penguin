@@ -20,6 +20,9 @@ def close_db(error):
         g.sqlite_db.close()
 
 
+@app.route('/home')
+def home():
+    return render_template('index.html')
 
 @app.route('/')
 def login():
