@@ -1,5 +1,3 @@
-from asyncio.windows_events import NULL
-from dbm import _Database
 from flask import Flask, render_template, request, redirect, url_for,g
 import sqlite3
 
@@ -64,36 +62,35 @@ def agregar():
             con.close()
             return render_template("result.html",msg = msg)
 
-@app.route('/editar', methods=['POST', 'GET'])
-def agregar():   
-    if request.method == 'POST':
-        try:
-            for data in _Database: 
-                nombre = request.args.get['nombre']
-                apellido = data['apellido']
-                ciudad = data['ciudad']
-                nacimiento = data['nacimiento']
-                #sexo = request.form['sexo']
-                t_artesanal = request.form.getlist('t_artesanal')
-                t_artesanal = ', '.join(t_artesanal)
-                modalidad = request.form.getlist('modalidad')
-                modalidad = ', '.join(modalidad)
-                print (modalidad)
-                mat_prima = request.form.getlist('mat_prima')
-                mat_prima = ', '.join(mat_prima)
-                oficio = data['oficio']
-                antiguedad =request.form['antiguedad']
-            with sqlite3.connect("database.db") as con:
-                cur = con.cursor()
-                cur.execute("INSERT INTO artesanos (nombre, apellido, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad) VALUES (?,?,?,?,?,?,?,?,?)",(nombre, apellido, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad) )
-                con.commit()
-                msg = "Record successfully added"
-        except:
-            con.rollback()
-            msg = "error in insert operation"
-        finally:
-            con.close()
-            return render_template("result.html",msg = msg)
+# @app.route('/editar', methods=['POST', 'GET'])
+# def editar():   
+#     if request.method == 'POST':
+#         try:
+#             nombre = request.args.get['nombre']
+#             apellido = data['apellido']
+#             ciudad = data['ciudad']
+#             nacimiento = data['nacimiento']
+#             #sexo = request.form['sexo']
+#             t_artesanal = request.form.getlist('t_artesanal')
+#             t_artesanal = ', '.join(t_artesanal)
+#             modalidad = request.form.getlist('modalidad')
+#             modalidad = ', '.join(modalidad)
+#             print (modalidad)
+#             mat_prima = request.form.getlist('mat_prima')
+#             mat_prima = ', '.join(mat_prima)
+#             oficio = data['oficio']
+#             antiguedad =request.form['antiguedad']
+#             with sqlite3.connect("database.db") as con:
+#                 cur = con.cursor()
+#                 cur.execute("INSERT INTO artesanos (nombre, apellido, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad) VALUES (?,?,?,?,?,?,?,?,?)",(nombre, apellido, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad) )
+#                 con.commit()
+#                 msg = "Record successfully added"
+#         except:
+#             con.rollback()
+#             msg = "error in insert operation"
+#         finally:
+#             con.close()
+#             return render_template("result.html",msg = msg)
 
 if __name__ == "__main__":
     app.run(debug=True)
