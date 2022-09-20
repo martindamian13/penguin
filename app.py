@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from flask import Flask, render_template, request, redirect, url_for,g
 import sqlite3
 
@@ -24,7 +25,7 @@ def close_db(error):
 @app.route('/')
 def hello_world():
     db = get_db()
-    cur = db.execute('SELECT * FROM database')
+    cur = db.execute('SELECT * FROM artesanos')
     datas = cur.fetchall()
     return render_template('index.html', datas=datas)    
 
@@ -41,15 +42,18 @@ def agregar():
             ciudad = request.form['ciudad']
             nacimiento = request.form['nacimiento']
             #sexo = request.form['sexo']
-            t_artesanal = request.form['t_artesanal']
-            modalidad = request.form['modalidad']
-            mat_prima = request.form['mat_prima']
+            t_artesanal = request.form.getlist('t_artesanal')
+            t_artesanal = ', '.join(t_artesanal)
+            modalidad = request.form.getlist('modalidad')
+            modalidad = ', '.join(modalidad)
+            print (modalidad)
+            mat_prima = request.form.getlist('mat_prima')
+            mat_prima = ', '.join(mat_prima)
             oficio = request.form['oficio']
             antiguedad =request.form['antiguedad']
-
             with sqlite3.connect("database.db") as con:
                 cur = con.cursor()
-                cur.execute("INSERT INTO artesanos (nombre, apellido, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad ) VALUES (?,?,?,?,?,?,?,?,?)",(nombre, apellido, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad) )
+                cur.execute("INSERT INTO artesanos (nombre, apellido, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad) VALUES (?,?,?,?,?,?,?,?,?)",(nombre, apellido, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad) )
                 con.commit()
                 msg = "Record successfully added"
         except:
