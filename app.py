@@ -22,16 +22,22 @@ def close_db(error):
 
 
 @app.route('/')
-def hello_world():
+def login():
+    return render_template('login.html') 
+
+@app.route('/view')
+def view():
     db = get_db()
-    cur = db.execute('SELECT * FROM artesanos')
-    datas = cur.fetchall()
-    return render_template('index.html', datas=datas)    
+    cur = db.execute('SELECT * from artesanos')
+    artesanos = cur.fetchall()
+    return render_template('view.html', artesanos=artesanos)
 
 @app.route('/form')
 def form():
     return render_template('form.html')
 
+
+#Ya esta funcionando
 @app.route('/agregar', methods=['POST', 'GET'])
 def agregar():   
     if request.method == 'POST':
