@@ -24,7 +24,7 @@ def close_db(error):
 @app.route('/')
 def hello_world():
     db = get_db()
-    cur = db.execute('SELECT * FROM database')
+    cur = db.execute('SELECT * FROM artesanos')
     datas = cur.fetchall()
     return render_template('index.html', datas=datas)    
 
@@ -41,7 +41,10 @@ def agregar():
             ciudad = request.form['ciudad']
             nacimiento = request.form['nacimiento']
             #sexo = request.form['sexo']
-            t_artesanal = request.form['t_artesanal']
+            t1 = request.form['t_artesanal1']
+            t2 = request.form['t_artesanal2']
+            t3 = request.form['t_artesanal3']
+            t_artesanal = t1 + ", " + t2 + ", " + t3
             modalidad = request.form['modalidad']
             mat_prima = request.form['mat_prima']
             oficio = request.form['oficio']
