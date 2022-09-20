@@ -36,21 +36,20 @@ def form():
 def agregar():   
     if request.method == 'POST':
         try:
-            nombre = request.formartesanos['nombre']
-            apellido = request.formartesanos['apellido']
-            cuidad = request.formartesanos['cuidad']
-            nacimiento = request.formartesanos['nacimiento']
-            sexo = request.formartesanos['sexo']
-            t_artesanal = request.formartesanos['t_artesanal']
-            modalidad = request.formartesanos['modalidad']
-            mat_prima = request.formartesanos['mat_prima']
-            oficio = request.formartesanos['oficio']
-            antiguedad =request.formartesanos['antiguedad']
-
+            nombre = request.form['nombre']
+            apellido = request.form['apellido']
+            ciudad = request.form['ciudad']
+            nacimiento = request.form['nacimiento']
+            #sexo = request.form['sexo']
+            t_artesanal = request.form['t_artesanal']
+            modalidad = request.form['modalidad']
+            mat_prima = request.form['mat_prima']
+            oficio = request.form['oficio']
+            antiguedad =request.form['antiguedad']
 
             with sqlite3.connect("database.db") as con:
                 cur = con.cursor()
-                cur.execute("INSERT INTO ejemplo (nombre, apellido, cuidad, nacimiento, sexo, t_artesanal, modalidad, mat_prima, oficio, antiguedad ) VALUES (?,?,?,?,?,?,?,?,?,?)",(nombre, apellido, cuidad, nacimiento, sexo, t_artesanal, modalidad, mat_prima, oficio, antiguedad) )
+                cur.execute("INSERT INTO artesanos (nombre, apellido, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad ) VALUES (?,?,?,?,?,?,?,?,?)",(nombre, apellido, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad) )
                 con.commit()
                 msg = "Record successfully added"
         except:
@@ -59,3 +58,6 @@ def agregar():
         finally:
             con.close()
             return render_template("result.html",msg = msg)
+
+if __name__ == "__main__":
+    app.run(debug=True)
