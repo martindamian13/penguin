@@ -1,63 +1,63 @@
-from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
-
+from flask import Flask, render_template, request, redirect, url_for, g 
+import sqlite3
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/database.sqlite3'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
+# Connect to the database
+def connect_db():
+    sql = sqlite3.connect('./database.db')
+    sql.row_factory = sqlite3.Row
+    return sql
 
-# Database model
-class Todo(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(80))
-    completed = db.Column(db.Boolean)
+# Get the database
+def get_db():
+    if not hasattr(g, 'sqlite3'):
+        g.sqlite3_db = connect_db()
+    return g.sqlite3_db
 
-    def __init__(self, title, completed):
-        self.title = title
-        self.completed = completed
-
-    def __repr__(self):
-        return f'<Todo: {self.title}>'
-
+# Close the database
+@app.teardown_appcontext
+def close_db(error):
+    if hasattr(g, 'sqlite_db'):
+        g.sqlite3_db.close()
 
 # Endpoint for todo list
 @app.route('/')
 def index():
-    todos = Todo.query.all()
-    return render_template('index.html', todos=todos)
+    return render_template('index.html')
 
-  
-# Endpoint for create todo
-@app.route('/todo/create', methods=['POST'])
-def create():
-    title = request.form['title']
-    todo = Todo(title, completed=False)
-    db.session.add(todo)
-    db.session.commit()
-    return redirect(url_for('index'))
-  
-  
-# Endpoint for update todo
-@app.route('/todo/<int:todo_id>/update')
-def update(todo_id):
-    todo = Todo.query.filter_by(id=todo_id).first()
-    todo.completed = not todo.completed
-    db.session.commit()
-    return redirect(url_for('index'))
-  
+# Endpoint for view datas
+@app.route('/view')
+def view():
+    db = get_db()
+    cur = db.execute('SELECT * FROM artesanos')
+    datas = cur.fetchall()
+    return render_template('view.html', datas=datas)
 
-# Endpoint for delete todo
-@app.route('/todo/<int:todo_id>/delete')
-def delete(todo_id):
-    todo = Todo.query.filter_by(id=todo_id).first()
-    db.session.delete(todo)
-    db.session.commit()
-    return redirect(url_for('index'))
-  
+# Endpoint for form
+@app.route('/form')
+def form():
+    return render_template('form.html')
 
-# Run the app
-if __name__ == '__main__':
-    db.create_all()
-    app.run(debug=True)
+
+# Endpoint for agregar
+@app.route('/agregar', methods=['POST', 'GET'])
+def agregar():   
+    if request.method == 'POST':
+        try:
+            nombre = request.form['nombre']
+            apellido = request.form['apellido']
+            cedula = request.form['cedula_numero']
+            depa = request.form['departamento']
+            edad = request.form['edad']
+            with sqlite3.connect("database.db") as con:
+                cur = con.cursor()
+                cur.execute("INSERT INTO artesanos (nombre,apellido,cedula_numero,departamento,edad) VALUES (?,?,?,?,?)",(nombre,apellido,cedula,depa,edad) )
+                con.commit()
+                msg = "Record successfully added"
+        except:
+            con.rollback()
+            msg = "error in insert operation"
+        finally:
+            con.close()
+            return render_template("result.html",msg = msg)
