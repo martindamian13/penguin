@@ -1,7 +1,27 @@
 from flask import Flask, render_template, request, redirect, url_for, g 
+from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database/database.sqlite3'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+# Database model
+class Todo(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(80))
+    completed = db.Column(db.Boolean)
+
+    def __init__(self, title, completed):
+        self.title = title
+        self.completed = completed
+
+    def __repr__(self):
+        return f'<Todo: {self.title}>'
+
+
 
 # Connect to the database
 def connect_db():
