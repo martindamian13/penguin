@@ -30,7 +30,7 @@ def login():
 
 @app.route('/estadisticas')
 def estadisticas():
-    return render_template('stadistics.html')
+    return render_template('stadistics1.html')
 
 @app.route('/view')
 def view():

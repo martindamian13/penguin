@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Visualizacion De Datos</title>
+  </head>
+  <body class = "bg-yellow-400">
+    <header>
+      <nav class=" border-gray-200 px-4 lg:px-6 py-2.5 ">
+        <div class="flex flex-wrap justify-between items-center max-w-screen-xl">
+          <div>
+          <a href="home" class="flex items-center">
+            <img src="https://www.artesania.gov.py/application/files/8915/7011/4220/Logo_IPA.png" class="h-48 w-48 " alt="Sistema de registro de artesanos del Paraguay"/>
+          </a>
+          </div>
+          <div>
+            <a href="home" class="flex items-center">
+              <span class="self-center text-4xl font-semibold ">SIRAP</span>
+            </a>
+          </div>
+          
+          
+        </div>
+      </nav>
+    </header>
+    <!-- Creamos la tabla para visualizar los datos-->
+        <div class="flex flex-wrap sm:justify-center items-center w-full py-10 px-10"> 
+            <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+          <iframe
+      class="w-[1024px] h-[1068px]"
+      src="https://datastudio.google.com/embed/reporting/161d0060-5035-4b4c-bf89-6e36e06a4506/page/6jy2C"
+      frameborder="0"
+      style="border: 0"
+      allowfullscreen
+    ></iframe>
+            </div>          
+    </div>
+  </body>
+</html>
