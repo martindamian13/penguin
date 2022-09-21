@@ -28,6 +28,10 @@ def home():
 def login():
     return render_template('login.html') 
 
+@app.route('/estadisticas')
+def estadisticas():
+    return render_template('stadistics.html')
+
 @app.route('/view')
 def view():
     db = get_db()
