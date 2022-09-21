@@ -13,15 +13,8 @@
     <title>SIRAP</title>
 <!--- Documento html de prueba -->
 </head>
-<body>
-    <div class="flex flex-wrap min-h-screen sm:justify-center items-center h-full bg-gradient-to-br from-brown via-blue-300 to-blue-900 w-full py-10 px-10"
-    style= "background: linear-gradient(
-                to right,
-                #d8bc8c,
-                #e0c780,
-                #d1bb70,
-                #dbd26a
-            );">
+<body class = "bg-yellow-400">
+    <div class="flex flex-wrap min-h-screen sm:justify-center items-center h-full w-full py-10 px-10">
         <div>
             <!-- Pedimos al usuario que ingrese su nombre-->
             <form action = "{{ url_for('agregar') }}" method = "POST">

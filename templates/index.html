@@ -7,16 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Pagina de inicio- (SIRAP)</title>
   </head>
-  <body class="w-full h-screen">
+  <body class="bg-yellow-400">
     <!-- Pagina de inicio-->
     <header>
-      <nav
-        class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-amber-100"
-      >
-        <div
-          class="flex flex-wrap justify-between items-center max-w-screen-xl"
-        >
-          <a href="https://flowbite.com"b#editar esto por  el link correcto
+      <nav class=" border-gray-200 px-4 lg:px-6 py-2.5 ">
+        <div class="flex flex-wrap justify-between items-center max-w-screen-xl">
+          <a href="home"b#editar esto por  el link correcto
            class="flex items-center">
             <img
               src="https://www.artesania.gov.py/application/files/8915/7011/4220/Logo_IPA.png"
@@ -33,20 +29,23 @@
     </header>
 
     <!-- Creamos las ñembo cards con acciones-->
-    <div class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-amber-100 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+    <div class="border-gray-200 px-1 pb-10 lg:px-6 py-2.5 p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
         <!--Card 1-->
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class=" w-full" src="../static/carga.png" alt="foto de formu">
+        <a href="form">
+        <div class="rounded overflow-hidden shadow-lg bg-yellow-900 bg-opacity-30">
+          <img class="object-fill" src="../static/carga.png" alt="foto de formu">
           <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">Cargar Datos De Artesanos</div>
+            <div class="font-bold text-xl mb-2"> Cargar Datos De Artesanos</div>
             <p class="text-gray-700 text-base">
              Clickea aqui para acceder al formulario, que permite la carga de datos de Artesanos
             </p>
           </div>
         </div>
+        </a>
         <!--Card 2-->
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class="w-full" src="../static/form.jpg" alt="Fotito pa ver formularios">
+        <a href="view">
+        <div class="rounded overflow-hidden shadow-lg bg-yellow-900 bg-opacity-30">
+          <img class="object-fill" src="../static/form.png" alt="Fotito pa ver formularios">
           <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">Ver Fromularios Cargados</div>
             <p class="text-gray-700 text-base">
@@ -54,10 +53,11 @@
             </p>
           </div>
         </div>
-    
+        </a>
+        <a href="estadisticas">
         <!--Card 3-->
-        <div class="rounded overflow-hidden shadow-lg">
-          <img class="w-full" src="..//static/estadistica.png" alt="Foto de estadisticas">
+        <div class="rounded overflow-hidden shadow-lg bg-yellow-900 bg-opacity-30">
+          <img class="w-full object-fill" src="..//static/estadistica.png" alt="Foto de estadisticas">
           <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">Ver Estadisticas</div>
             <p class="text-gray-700 text-base">
@@ -65,20 +65,15 @@
             </p>
           </div>
         </div>
+      </a>
       </div>
     </div>
     
-  </body>
   <!-- Fooder -->
-  <footer class="items-center pb- bg-white dark:bg-amber-100 h-screen w-full ">
-    <div class="md:flex md:justify-between">
-        <div class="mb-2 md:mb-0 ">
-            <a href="https://flowbite.com/" class="flex items-center">
-                <img src="https://www.artesania.gov.py/application/files/8915/7011/4220/Logo_IPA.png" class="h-48 w-full" alt="Logo  IPA">
-                <span class="self-center text-3xl font-semibold whitespace-nowrap dark:text-black-500">SIRAP</span>
-            </a>
-        </div>
-        <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+  <footer class="items-center">
+    <div class="md:flex md:justify-center">
+        
+        <div class="grid grid-cols-3 gap-20 place-content-center h-48">
             <div>
                 <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Recursos</h2>
                 <ul class="text-gray-600 dark:text-gray-400">
@@ -86,7 +81,7 @@
                         <a href="https://penguin.academy/dl/Principal" class="hover:underline">Penguin Academy</a>
                     </li>
                     <li>
-                        <a href="https://www.artesania.gov.py/index.php" class="hover:underline">Instituto Paraguayo De Artesania</a>
+                        <a href="https://www.artesania.gov.py/index.php" class="hover:underline">IPA</a>
                     </li>
                 </ul>
             </div>
@@ -114,8 +109,8 @@
             </div>
         </div>
     </div>
-    <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8">
-    <div class="sm:flex sm:items-center sm:justify-between">
+    <hr class="my-3 border-gray-200 sm:mx-auto dark:border-gray-700">
+    <div class="sm:flex sm:items-center sm:justify-between pb-3">
         <span class="text-sm text-gray-500 text-center dark:text-gray-400">© 2022 <a href="https://flowbite.com/" class="hover:underline ">Penguin Academy™</a>. All Rights Reserved.
         </span>
         <div class="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
@@ -138,5 +133,5 @@
         </div>
     </div>
 </footer>
-
-  </html>
+</body>
+</html>
