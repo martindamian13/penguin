@@ -3,6 +3,7 @@ import sqlite3
 
 
 app = Flask(__name__)
+
 # Coneccion a la base de datos
 def connect_db():
     sql = sqlite3.connect('database.db')
@@ -71,13 +72,48 @@ def agregar():
                 cur = con.cursor()
                 cur.execute("INSERT INTO artesanos (nombre, apellido, sexo, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad) VALUES (?,?,?,?,?,?,?,?,?,?)",(nombre, apellido,sexo, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad) )
                 con.commit()
-                msg = "Record successfully added"
         except:
             con.rollback()
-            msg = "error in insert operation"
         finally:
             con.close()
             return redirect("home")
+
+# Ruta para modificar datos de la base de datos
+@app.route('/view/<id>')
+def viewp(id):
+    db = get_db()
+    cur = db.execute('SELECT * from artesanos where id = ?', id)
+    artesano = cur.fetchall()
+    return render_template('edit.html', artesano=artesano)
+
+# Funcion que modifica los datos de la base de datos
+@app.route('/modificar', methods=['POST', 'GET'])
+def modificar():
+    if request.method == 'POST':
+        try:
+            id = request.form['id']
+            nombre = request.form['nombre']
+            apellido = request.form['apellido']
+            ciudad = request.form['ciudad']
+            nacimiento = request.form['nacimiento']
+            sexo = request.form['sexo']
+            t_artesanal = request.form.getlist('t_artesanal')
+            t_artesanal = ', '.join(t_artesanal)
+            modalidad = request.form.getlist('modalidad')
+            modalidad = ', '.join(modalidad)    
+            mat_prima = request.form.getlist('mat_prima')
+            mat_prima = ', '.join(mat_prima)
+            oficio = request.form['oficio']
+            antiguedad =request.form['antiguedad']
+            with sqlite3.connect("database.db") as con:
+                cur = con.cursor()
+                cur.execute("UPDATE artesanos SET nombre=?, apellido=?, sexo=?, ciudad=?, nacimiento=?, t_artesanal=?, modalidad=?, mat_prima=?, oficio=?, antiguedad=? WHERE id=?",(nombre, apellido,sexo, ciudad, nacimiento, t_artesanal, modalidad, mat_prima, oficio, antiguedad, id) )
+                con.commit()
+        except:
+            con.rollback()
+        finally:
+            con.close()
+            return redirect("view")
 
 # Debug mode on
 if __name__ == "__main__":

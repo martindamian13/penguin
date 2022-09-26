@@ -34,23 +34,23 @@
     <div class="flex flex-wrap min-h-screen sm:justify-center items-center h-full w-full py-10 px-10">
         <div>
             <!-- Pedimos al usuario que ingrese su nombre-->
-            <form action = "{{ url_for('agregar') }}" method = "POST">
+            <form action = "{{ url_for('modificar') }}" method = "POST">
                 <h1 class="font-['Oswald'] text-4xl text-center mb-5 ">Registro del Artesano/a</h1> 
                 <h1 class="font-['Oswald'] text-2xl text-left">Datos Personales</h1> 
                 <div class=" mt-2 mb-0 grid gap-6 mb-6 md:grid-cols-2">
                     <div>
                         <label for="Nombres" class="font-['Oswald'] text-lg">Nombres</label>
-                        <input name = 'nombre' type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Carlos" required>
+                        <input name ='nombre' type="text" value="{{ artesano[0]['nombre'] }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Carlos" required>
                     </div>
                     <!--- Pedimos al usuario que ingrese su apellido -->
                     <div>
                         <label for="Apellidos" class="font-['Oswald'] text-lg">Apellidos</label>
-                        <input name = 'apellido' type="text" id="Apellidos" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Martinez" required>
+                        <input name = 'apellido' type="text" value="{{ artesano[0]['apellido'] }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Martinez" required>
                     </div>
                     <!-- Pedimos al usuario que ingrese su cuidad-->
                     <div><label for="ciudades" class="font-['Oswald'] text-lg">Ciudad</label>
-                        <select name="ciudad" id="ciudades" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
-                        <option selected>Selccione su Ciudad</option>
+                        <select name="ciudad" id="ciudades" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option selected>{{ artesano[0]['ciudad'] }}</option>
                         <option value="San Lorenzo">San Lorenzo</option>
                         <option value="Aregua">Aregua</option>
                         <option value="Ciudad Del Este">Cuidad del este</option>
@@ -63,16 +63,16 @@
                     <div class="grid gap-6 mb-0 md:grid-cols-2">
                         <div>
                             <label for="Fecha de naciemiento" class="font-['Oswald'] text-lg">Fecha de nacimiento</label>
-                            <input name = 'nacimiento' type="text" id="Nombres" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Introduzca su fecha de naciemiento" />
+                            <input name = 'nacimiento' type="text" value="{{ artesano[0]['nacimiento'] }}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Introduzca su fecha de naciemiento" />
                 </div>
             </div>
         </div>
             <!-- Pedimos al usuario qwue ingrerse su sexooooooooooooo-->
             <h3 class="font-['Oswald'] text-lg text-left">Sexo</h3>
             <div class="flex items-center mb-5">
-                <input id="default-radio-1" type="radio" name = 'sexo' value="Masculino" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                <label for="default-radio-1" class="padding: 1em; ml-1 text-sm font-medium">Masculino   </label>
-                <input checked="" id="default-radio-2" type="radio" value="Femenino" name="sexo" class="w-4 ml-2 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <input checked id="default-radio-1" type="radio" name = 'sexo' value="Masculino" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                <label for="default-radio-1" class="padding: 1em; ml-1 text-sm font-medium">Masculino</label>
+                <input id="default-radio-2" type="radio" value="Femenino" name="sexo" class="w-4 ml-2 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
                 <label for="default-radio-2" class="ml-2 text-sm font-medium ">Femenino</label>
             </div>
         <!-- CATEEGORIAS-->
