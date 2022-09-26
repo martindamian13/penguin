@@ -44,7 +44,6 @@ def form():
     return render_template('form.html')
 
 
-#Ya esta funcionando
 @app.route('/agregar', methods=['POST', 'GET'])
 def agregar():   
     if request.method == 'POST':
@@ -57,8 +56,7 @@ def agregar():
             t_artesanal = request.form.getlist('t_artesanal')
             t_artesanal = ', '.join(t_artesanal)
             modalidad = request.form.getlist('modalidad')
-            modalidad = ', '.join(modalidad)
-            print (modalidad)
+            modalidad = ', '.join(modalidad)    
             mat_prima = request.form.getlist('mat_prima')
             mat_prima = ', '.join(mat_prima)
             oficio = request.form['oficio']
@@ -73,7 +71,7 @@ def agregar():
             msg = "error in insert operation"
         finally:
             con.close()
-            return render_template("result.html",msg = msg)
+            return redirect("home")
 
 if __name__ == "__main__":
     app.run(debug=True)
