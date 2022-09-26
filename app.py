@@ -3,35 +3,40 @@ import sqlite3
 
 
 app = Flask(__name__)
-
+# Coneccion a la base de datos
 def connect_db():
     sql = sqlite3.connect('database.db')
     sql.row_factory = sqlite3.Row
     return sql
 
+# Funcion para obtener la base de datos
 def get_db():
     if not hasattr(g, 'sqlite_db'):
         g.sqlite_db = connect_db()
     return g.sqlite_db
 
+# Funcion para cerrar la base de datos
 @app.teardown_appcontext
 def close_db(error): 
     if hasattr(g, 'sqlite_db'):
         g.sqlite_db.close()
 
-
+# Ruta principal
 @app.route('/home')
 def home():
     return render_template('index.html')
 
+# Ruta de login
 @app.route('/')
 def login():
     return render_template('login.html') 
 
+# Ruta de estadisticas
 @app.route('/estadisticas')
 def estadisticas():
     return render_template('stadistics1.html')
 
+# Ruta para ver los datos de la base de datos
 @app.route('/view')
 def view():
     db = get_db()
@@ -39,11 +44,12 @@ def view():
     artesanos = cur.fetchall()
     return render_template('view.html', artesanos=artesanos)
 
+# Ruta para agregar datos a la base de datos
 @app.route('/form')
 def form():
     return render_template('form.html')
 
-
+# Funcion que agrega los datos a la base de datos
 @app.route('/agregar', methods=['POST', 'GET'])
 def agregar():   
     if request.method == 'POST':
@@ -73,5 +79,6 @@ def agregar():
             con.close()
             return redirect("home")
 
+# Debug mode on
 if __name__ == "__main__":
     app.run(debug=True)
